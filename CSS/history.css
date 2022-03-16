@@ -1,0 +1,662 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Karla:400|Spectral:400');
+
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  scrollbar-color: #0f0e17 #fff;
+}
+:root {
+  --primary: #c59d5f;
+  --primary100: #d0f1f6;
+  --primary200: #a0e3ec;
+  --primary300: #71d5e3;
+  --primary400: #41c7d9;
+  --primary500: #12b9d0;
+  --primary600: #0e94a6;
+  --primary700: #0b6f7d;
+  --primary800: #074a53;
+  --primary900: #04252a;
+
+  /*grey*/
+  --grey50: #f9fafb;
+  --grey100: #f3f4f6;
+  --grey200: #e5e7eb;
+  --grey300: #d1d5db;
+  --grey400: #9ca3af;
+  --grey500: #6b7280;
+  --grey600: #4b5563;
+  --grey700: #374151;
+  --grey800: #1f2937;
+  --grey900: #111827;
+  /*grey*/
+
+  /* rest of the colors */
+  --black: #222;
+  --white: #fff;
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+
+  --headingfont: 'Spectral', serif;
+  --bodyfont: 'Karla', sans-serif;
+  --smalltext: 0.9em;
+
+  --backgroundcolor: #0f0e17;
+  --textcolor: #a7a9be;
+  --headingcolor: black;
+
+  --borderRadius: 0.25rem;
+  --letterspacing: 1px;
+  --max-width: 1120px;
+  --fixed-width: 600px;
+  --transition: 0.2s ease-in-out all;
+
+  /*box shadow*/
+  --shadow-n: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-m: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-l: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+p {
+  margin-bottom: 1.5rem;
+  max-width: 40em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--headingfont);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--headingcolor);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052rem;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.563rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+small,
+.text-small {
+  font-size: var(--smalltext);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+body {
+  font-family: var(--bodyfont);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--textcolor);
+  background-color: #f1f5f8;
+}
+
+/*NAVBAR*/
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-center {
+  width: 90vw;
+  max-width: var(--max-width);
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+}
+
+.nav-header a {
+  font-size: 2.5rem;
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+}
+
+.nav-btn {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 0;
+  transition: var(--transition);
+}
+
+.show-links {
+  height: 230px;
+}
+
+.nav-link {
+  color: var(--primary);
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid black;
+  text-align: center;
+  width: 100%;
+  letter-spacing: var(--letterspacing);
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  font-weight: 600;
+  box-shadow: var(--shadow-l);
+}
+
+@media screen and (min-width: 992px) {
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-bar {
+    border-bottom: 2px solid var(--primary);
+  }
+
+  .nav-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-header {
+    margin-right: 3rem;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    margin-top: 0.7rem;
+  }
+
+  .nav-link {
+    border-top: none;
+    margin-left: 2rem;
+    border-radius: var(--borderRadius);
+    width: auto;
+    border: none;
+  }
+
+  .nav-link:hover {
+    border-bottom: 1px solid black;
+    font-weight: 500;
+  }
+
+  .link-active {
+    border-bottom: 1px solid black;
+    box-shadow: var(--shadow-l);
+  }
+}
+/*END OF NAVBAR*/
+
+/*HISTORY PAGE*/
+
+.page {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.img-header {
+  height: 40vh;
+  background: url('https://wbpscupsc.com/wp-content/uploads/2019/08/Ancient-History-of-India.jpeg')
+    center/cover no-repeat;
+  border-radius: var(--borderRadius);
+  position: relative;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-m);
+}
+
+.img-text {
+  text-align: center;
+  color: var(--primary);
+  margin-top: 1rem;
+}
+
+.img-text h1,
+.img-text h4 {
+  color: white;
+}
+
+.img-text h1 {
+  font-size: 1.8rem;
+}
+
+.img-text h4 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .img-text h1 {
+    font-size: 3rem;
+  }
+
+  .img-text h4 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.history-container {
+  margin: 2rem 0rem;
+}
+
+.single-article {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin-bottom: 2rem;
+  padding: 1rem 1rem 0rem 1rem;
+}
+.single-article img {
+  width: 100%;
+  height: 21rem;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--borderRadius);
+}
+
+.article-info {
+  background: var(--primary);
+  margin: 2rem 0rem;
+  padding: 0rem 1rem;
+  border-radius: var(--borderRadius);
+}
+
+.article-info h4,
+p {
+  color: black;
+}
+
+@media screen and (min-width: 768px) {
+  .single-article {
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 0rem;
+    padding: 0rem 1rem;
+  }
+
+  .single-article img {
+    height: 21.9rem;
+    margin: 1rem 0rem;
+  }
+
+  .article-info {
+    margin: 1rem 0rem 1rem 1rem;
+    height: auto;
+  }
+}
+
+/*END OF HISTORY PAGE*/
+
+/*ARCHITECTURE PAGE*/
+
+.main-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-info h4 {
+  font-size: 1.1rem;
+  color: black;
+  background: var(--primary);
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-xl);
+}
+
+.main-info h2 {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+}
+
+.main-pics {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  border: 2px solid var(--primary);
+  box-shadow: var(--shadow-xl);
+}
+
+.single-pic {
+  border-radius: var(--borderRadius);
+  margin: 1rem;
+  width: 30vw;
+}
+
+.single-pic img {
+  width: 100%;
+  object-fit: contain;
+  box-shadow: var(--shadow-xl);
+  height: 45vh;
+}
+
+.single-pic h5 {
+  margin: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .main-pics {
+    flex-direction: column;
+  }
+  .single-pic {
+    margin-bottom: 1.5rem;
+    width: auto;
+  }
+  .single-pic img {
+    height: 55vh;
+  }
+}
+
+.sub-section {
+  margin-bottom: 2rem;
+}
+
+.sub-section h3 {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+}
+
+.sub-info-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sub-info {
+  background-color: var(--primary);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-xl);
+}
+
+.sub-info h4 {
+  font-size: 1.1rem;
+  padding: 0rem 1rem;
+}
+
+.sub-pics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: auto;
+  box-shadow: var(--shadow-xl);
+}
+
+.single-sub-pic {
+  margin: 0rem 0rem 0rem 1rem;
+  border: 2px solid var(--primary);
+}
+.top-pic {
+  margin-bottom: 1rem;
+}
+
+.single-sub-pic img {
+  height: auto;
+  object-fit: contain;
+  width: 20vw;
+}
+
+.single-sub-pic h5 {
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
+}
+.sub-info2 {
+  margin-top: 1rem;
+  background-color: var(--primary);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-xl);
+}
+.sub-info2 h4 {
+  font-size: 1.1rem;
+  padding: 1rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .sub-info-container {
+    flex-direction: column;
+  }
+  .single-sub-pic img {
+    width: 100%;
+    height: 30vh;
+  }
+
+  .sub-pics {
+    margin-top: 2rem;
+    margin-left: -1rem;
+  }
+}
+
+/*END OF ARCHITECTURE PAGE*/
+
+/*ANCIENT PAGE*/
+.age-header {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+}
+
+.menu-container {
+  text-align: center;
+}
+.menu-btn {
+  padding: 0.4rem;
+  margin: 0.5rem;
+  text-decoration: none;
+  border-radius: var(--borderRadius);
+  border: 3px solid var(--primary);
+  background: var(--primary);
+  transition: var(--transition);
+  box-shadow: var(--shadow-l);
+}
+
+.menu-btn:hover {
+  background-color: white;
+}
+.menu-btn:focus {
+  background-color: white !important;
+  outline: 0;
+}
+
+.age-container h2 {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+}
+
+.age-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.age-main-info h4 {
+  font-size: 1.1rem;
+  color: black;
+  background: var(--primary);
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-xl);
+}
+
+.age-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.age-main-pic {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  border: 2px solid var(--primary);
+  box-shadow: var(--shadow-xl);
+}
+
+.age-single-pic {
+  border-radius: var(--borderRadius);
+  margin: 1rem;
+  width: 30vw;
+}
+
+.age-single-pic img {
+  width: 100%;
+  object-fit: contain;
+  box-shadow: var(--shadow-l);
+  height: 45vh;
+}
+
+.age-single-pic h5 {
+  margin: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .age-main-pic {
+    flex-direction: column;
+  }
+  .age-single-pic {
+    margin-bottom: 1.5rem;
+    width: auto;
+  }
+  .age-single-pic img {
+    height: 55vh;
+  }
+}
+
+.age-sub h2 {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+}
+
+.age-sub-info h4 {
+  font-size: 1.1rem;
+  color: black;
+  background: var(--primary);
+  padding: 1rem;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-xl);
+}
+
+.age-sub-container h2 {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+}
+
+.age-sub-list {
+  margin-bottom: 5rem;
+}
+
+.single-list-header h3 {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.single-list-header h3:before,
+h3:after {
+  content: '';
+  flex: 1 1;
+  border-bottom: 2px solid var(--primary);
+  margin: 1rem 1rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.timeline h4 {
+  color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+}
+
+.timeline article {
+  width: 80%;
+  height: 0;
+  border-bottom: 2px solid var(--primary);
+  margin: 3rem 1rem;
+}
+
+/*END OF ANCIENT PAGE*/
+
+/*
+FOOTER
+*/
+.page-footer {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid black;
+}
+
+.page-footer p,
+.page-footer a {
+  margin-bottom: 0;
+  color: var(--primary);
+}
